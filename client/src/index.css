@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 142 70% 45%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 45 93% 47%;
+  --accent-foreground: 0 0% 15%;
+  --destructive: 15 100% 50%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+
+  /* Custom colors for specific purposes */
+  --chart-1: 207 90% 54%;
+  --chart-2: 142 70% 45%;
+  --chart-3: 45 93% 47%;
+  --chart-4: 15 100% 50%;
+  --chart-5: 263 70% 50%;
+
+  /* Sidebar specific colors (matches the design) */
+  --sidebar-background: 0 0% 18%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 207 90% 54%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 45 93% 47%;
+  --sidebar-accent-foreground: 0 0% 15%;
+  --sidebar-border: 0 0% 25%;
+  --sidebar-ring: 240 4.9% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Roboto', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+  }
+
+  /* Status indicators */
+  .status-indicator {
+    @apply w-2.5 h-2.5 rounded-full inline-block;
+  }
+
+  .status-active {
+    @apply bg-secondary;
+    box-shadow: 0 0 8px rgba(67, 160, 71, 0.5);
+  }
+
+  .status-warning {
+    @apply bg-accent;
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
+  }
+
+  .status-alert {
+    @apply bg-destructive;
+    box-shadow: 0 0 8px rgba(255, 61, 0, 0.5);
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 61, 0, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 61, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 61, 0, 0);
+    }
+  }
+
+  /* Map overlay styling */
+  .map-overlay {
+    @apply bg-background/85 backdrop-blur-sm rounded-lg;
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-custom::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/50 rounded-full;
+  }
+
+  /* Map container */
+  .map-container {
+    @apply h-[calc(100vh-64px)];
+  }
+}
