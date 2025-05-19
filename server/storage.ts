@@ -619,8 +619,8 @@ export class MemStorage implements IStorage {
 
     // Create participants
     const participantNames = [
-      'John Doe', 'Sarah Johnson', 'Emily Chen', 'Michael Brown',
-      'David Wilson', 'Jessica Taylor', 'Robert Martinez', 'Lisa Anderson',
+      'Jay Jay', 'Sarah Johnson', 'Emily Chen', 'Michael Brown',
+      'David Wilson', 'Bilal', 'Robert Martinez', 'Lisa Anderson',
       'James Thomas', 'Jennifer Garcia', 'Daniel Lewis', 'Maria Rodriguez'
     ];
     

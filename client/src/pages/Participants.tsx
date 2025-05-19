@@ -61,6 +61,7 @@ export default function Participants({ eventId }: ParticipantsProps) {
   };
 
   return (
+    <div className="overflow-y-auto max-h-screen"> 
     <div className="container mx-auto py-6 px-4">
       <div className="flex justify-between items-center mb-6">
         <div>
@@ -192,6 +193,7 @@ export default function Participants({ eventId }: ParticipantsProps) {
           />
         </DialogContent>
       </Dialog>
+    </div>
     </div>
   );
 }

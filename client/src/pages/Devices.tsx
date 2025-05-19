@@ -250,6 +250,7 @@ export default function Devices({ activeEventId }: DevicesProps) {
   }
 
   return (
+    <div className="overflow-y-auto max-h-screen"> 
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-6">
         <div>
@@ -666,6 +667,7 @@ export default function Devices({ activeEventId }: DevicesProps) {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+    </div>
     </div>
   );
 }

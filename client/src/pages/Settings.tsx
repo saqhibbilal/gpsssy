@@ -70,6 +70,7 @@ export default function Settings() {
   };
 
   return (
+    <div className="overflow-y-auto max-h-screen"> 
     <div className="container mx-auto py-6 px-4">
       <div className="mb-6">
         <h1 className="text-2xl font-bold">Settings</h1>
@@ -378,6 +379,7 @@ export default function Settings() {
           </Card>
         </TabsContent>
       </Tabs>
+    </div>
     </div>
   );
 }
