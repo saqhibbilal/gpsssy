@@ -31,6 +31,7 @@ export default function Routes({ eventId }: RoutesProps) {
   });
 
   return (
+    <div className="h-full overflow-y-auto">
     <div className="container mx-auto py-6 px-4">
       <div className="flex justify-between items-center mb-6">
         <div>
@@ -129,13 +130,14 @@ export default function Routes({ eventId }: RoutesProps) {
 
       {/* Create Route Dialog */}
       <Dialog open={isCreateRouteOpen} onOpenChange={setIsCreateRouteOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Create New Route</DialogTitle>
           </DialogHeader>
           <RouteForm onSuccess={() => setIsCreateRouteOpen(false)} />
         </DialogContent>
       </Dialog>
+    </div>
     </div>
   );
 }

@@ -70,8 +70,8 @@ export default function Settings() {
   };
 
   return (
-    <div className="overflow-y-auto max-h-screen"> 
-    <div className="container mx-auto py-6 px-4">
+    
+    <div className="container mx-auto py-6 px-4 overflow-y-auto max-h-screen">
       <div className="mb-6">
         <h1 className="text-2xl font-bold">Settings</h1>
         <p className="text-muted-foreground">
@@ -380,6 +380,5 @@ export default function Settings() {
         </TabsContent>
       </Tabs>
     </div>
-    </div>
-  );
+   );
 }

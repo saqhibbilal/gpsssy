@@ -14,8 +14,10 @@ export default function Analytics({ eventId }: AnalyticsProps) {
   const [timeRange, setTimeRange] = useState<string>("all");
   
   const { data: eventStats, isLoading: statsLoading } = useQuery<EventWithStats>({
-    queryKey: [`/api/events/${eventId}/stats`],
-    enabled: !!eventId,
+  queryKey: [`/api/events/${eventId}/stats`],
+  enabled: !!eventId,
+  staleTime: 1000 * 60 * 5,
+  refetchOnWindowFocus: false,
   });
 
   const { data: participants, isLoading: participantsLoading } = useQuery<ParticipantWithTracking[]>({
@@ -59,8 +61,7 @@ export default function Analytics({ eventId }: AnalyticsProps) {
   }
 
   return (
-  <div className="overflow-y-auto max-h-screen">  
-    <div className="container mx-auto py-6 px-4">
+   <div className="container mx-auto py-6 px-4 overflow-y-auto max-h-screen">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <div>
           <h1 className="text-2xl font-bold">Analytics</h1>
@@ -251,7 +252,6 @@ export default function Analytics({ eventId }: AnalyticsProps) {
           </CardContent>
         </Card>
       </div>
-    </div>
     </div>
   );
 }
