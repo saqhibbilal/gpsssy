@@ -61,7 +61,8 @@ export default function Analytics({ eventId }: AnalyticsProps) {
   }
 
   return (
-   <div className="container mx-auto py-6 px-4 overflow-y-auto max-h-screen">
+   <div className="overflow-y-auto h-screen">
+    <div className="container mx-auto py-6 px-4 min-h-[190vh]"> 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <div>
           <h1 className="text-2xl font-bold">Analytics</h1>
@@ -251,6 +252,7 @@ export default function Analytics({ eventId }: AnalyticsProps) {
             )}
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   );

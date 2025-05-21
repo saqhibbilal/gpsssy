@@ -250,8 +250,8 @@ export default function Devices({ activeEventId }: DevicesProps) {
   }
 
   return (
-    <div className="overflow-y-auto max-h-screen"> 
-    <div className="container mx-auto p-4">
+    <div className="overflow-y-auto h-screen"> 
+    <div className="container mx-auto p-4 min-h-[150vh]">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-2xl font-bold">Device Management</h1>

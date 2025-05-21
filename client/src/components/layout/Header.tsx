@@ -33,9 +33,9 @@ export default function Header({ activeEvent, events, onEventChange }: HeaderPro
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <MapPin className="text-primary mr-2" />
+            <MapPin className="text-primary mr-3" />
             <Link href="/">
-              <a className="font-bold text-xl">TrackPro</a>
+              <a className="font-bold text-3xl">trackPro</a>
             </Link>
           </div>
           

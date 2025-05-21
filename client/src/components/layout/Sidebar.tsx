@@ -24,7 +24,7 @@ export default function Sidebar({ activeEventId }: SidebarProps) {
   const { data: alerts } = useQuery<AlertInfo[]>({
     queryKey: [`/api/events/${activeEventId}/alerts`],
     enabled: !!activeEventId,
-    refetchInterval: 10000, // Refresh every 10 seconds
+    refetchInterval: 30000, // Refresh every 30 seconds
   });
   
   const activeAlertsCount = alerts?.length || 0;
@@ -44,9 +44,9 @@ export default function Sidebar({ activeEventId }: SidebarProps) {
       <div className="flex flex-col h-full">
         {/* Navigation title - only visible on large screens */}
         <div className="hidden lg:block px-4 py-6">
-          <h3 className="text-xs uppercase text-sidebar-foreground/60 font-medium mb-4">
-            Main Navigation
-          </h3>
+          <h3 className="text-lg font-semibold text-center text-sidebar-foreground/40  mb-4">
+     Admin Navigation Panel
+  </h3>
         </div>
         
         {/* Navigation items */}
