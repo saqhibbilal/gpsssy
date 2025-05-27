@@ -17,7 +17,7 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
 
   // Device operations
-  getDevices(): Promise<Device[]>;
+  getDevices(): Promise<Device[]>;  
   getDevice(id: number): Promise<Device | undefined>;
   createDevice(device: InsertDevice): Promise<Device>;
   updateDevice(id: number, device: Partial<InsertDevice>): Promise<Device | undefined>;
@@ -113,7 +113,7 @@ export class MemStorage implements IStorage {
 
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = this.currentUserId++;
-    const user: User = { ...insertUser, id };
+    const user: User = { ...insertUser, id,role: insertUser.role ?? 'user' };// added this role: insertUser.role ?? 'user'
     this.users.set(id, user);
     return user;
   }
@@ -129,7 +129,11 @@ export class MemStorage implements IStorage {
 
   async createDevice(insertDevice: InsertDevice): Promise<Device> {
     const id = this.currentDeviceId++;
-    const device: Device = { ...insertDevice, id };
+    const device: Device = { ...insertDevice, id,status: insertDevice.status ?? 'available', // Default value (added this line)
+    batteryLevel: insertDevice.batteryLevel ?? null, // Allow null as per schema (added this line)
+    lastSeen: insertDevice.lastSeen ?? null, // Allow null (added this line)
+    assignedTo: insertDevice.assignedTo ?? null// Allow null (added this line)
+   };
     this.devices.set(id, device);
     return device;
   }
@@ -203,7 +207,9 @@ export class MemStorage implements IStorage {
 
   async createEvent(insertEvent: InsertEvent): Promise<Event> {
     const id = this.currentEventId++;
-    const event: Event = { ...insertEvent, id };
+    const event: Event = { ...insertEvent, id, // Default value (added this)
+    maxParticipants: insertEvent.maxParticipants ?? 100 // added this 
+  };
     this.events.set(id, event);
     return event;
   }
@@ -233,7 +239,7 @@ export class MemStorage implements IStorage {
         points.push(point);
         trackingPointsByParticipant.set(point.participantId, points);
       }
-    }
+    } 
     
     // Get active alerts count
     const activeAlerts = Array.from(this.trackingPoints.values()).filter(
@@ -309,7 +315,9 @@ export class MemStorage implements IStorage {
 
   async createRoute(insertRoute: InsertRoute): Promise<Route> {
     const id = this.currentRouteId++;
-    const route: Route = { ...insertRoute, id };
+    const route: Route = { ...insertRoute, id, description: insertRoute.description ?? '', // Default empty string(added this)
+    createdBy: insertRoute.createdBy ?? null // Allow null (added this as well)
+  };
     this.routes.set(id, route);
     return route;
   }
@@ -340,7 +348,9 @@ export class MemStorage implements IStorage {
 
   async createCheckpoint(insertCheckpoint: InsertCheckpoint): Promise<Checkpoint> {
     const id = this.currentCheckpointId++;
-    const checkpoint: Checkpoint = { ...insertCheckpoint, id };
+    const checkpoint: Checkpoint = { ...insertCheckpoint, id ,
+      radius: insertCheckpoint.radius ?? 50// made this change
+    };
     this.checkpoints.set(id, checkpoint);
     return checkpoint;
   }
@@ -370,7 +380,8 @@ export class MemStorage implements IStorage {
 
   async createParticipant(insertParticipant: InsertParticipant): Promise<Participant> {
     const id = this.currentParticipantId++;
-    const participant: Participant = { ...insertParticipant, id };
+    const participant: Participant = { ...insertParticipant, id, 
+    };
     this.participants.set(id, participant);
     return participant;
   }
@@ -423,7 +434,12 @@ export class MemStorage implements IStorage {
 
   async createTrackingPoint(insertTrackingPoint: InsertTrackingPoint): Promise<TrackingPoint> {
     const id = this.currentTrackingPointId++;
-    const trackingPoint: TrackingPoint = { ...insertTrackingPoint, id };
+    const trackingPoint: TrackingPoint = { ...insertTrackingPoint, id, speed: insertTrackingPoint.speed ?? null, // Allow null
+    battery: insertTrackingPoint.battery ?? null, // Allow null
+    elevation: insertTrackingPoint.elevation ?? null, // Allow null
+    hasAlert: insertTrackingPoint.hasAlert ?? false, // Default value
+    alertType: insertTrackingPoint.alertType ?? null // Added all these
+   };
     this.trackingPoints.set(id, trackingPoint);
     return trackingPoint;
   }
