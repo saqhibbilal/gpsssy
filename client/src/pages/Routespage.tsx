@@ -13,7 +13,7 @@ interface RoutesProps {
   eventId: number;
 }
 
-export default function Routes({ eventId }: RoutesProps) {
+export default function Routespage({ eventId }: RoutesProps) {
   const [isCreateRouteOpen, setIsCreateRouteOpen] = useState(false);
   
   const { data: routes, isLoading } = useQuery<Route[]>({

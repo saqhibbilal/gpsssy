@@ -6,7 +6,8 @@ async function throwIfResNotOk(res: Response) {
     throw new Error(`${res.status}: ${text}`);
   }
 }
-
+/*
+//this works for adding routes but there is issue with respect to checkpoints
 export async function apiRequest(
   method: string,
   url: string,
@@ -22,6 +23,27 @@ export async function apiRequest(
   await throwIfResNotOk(res);
   return res;
 }
+  */
+
+
+//this works for devices and some other things but does not work for routes operations
+export async function apiRequest(
+  url: string,
+  options?: RequestInit
+): Promise<any> {
+  const res = await fetch(url, {
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      ...(options?.headers || {}),
+    },
+    ...options,
+  });
+
+  await throwIfResNotOk(res);
+  return res.json();
+}
+ 
 
 type UnauthorizedBehavior = "returnNull" | "throw";
 export const getQueryFn: <T>(options: {

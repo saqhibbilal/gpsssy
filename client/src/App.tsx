@@ -8,7 +8,7 @@ import NotFound from "@/pages/not-found";
 import AppShell from "@/components/layout/AppShell";
 import LiveTracking from "@/pages/LiveTracking";
 import Events from "@/pages/Events";
-import Routes from "@/pages/Routes";
+import Routespage from "@/pages/Routespage";
 import Participants from "@/pages/Participants";
 import Analytics from "@/pages/Analytics";
 import Devices from "@/pages/Devices";
@@ -52,7 +52,7 @@ function App() {
           <Switch>
             <Route path="/" component={() => <LiveTracking eventId={activeEventId} />} />
             <Route path="/events" component={() => <Events activeEventId={activeEventId} onEventSelect={setActiveEventId} />} />
-            <Route path="/routes" component={() => <Routes eventId={activeEventId} />} />
+            <Route path="/routes" component={() => <Routespage eventId={activeEventId} />} />
             <Route path="/participants" component={() => <Participants eventId={activeEventId} />} />
             <Route path="/analytics" component={() => <Analytics eventId={activeEventId} />} />
             <Route path="/devices" component={() => <Devices activeEventId={activeEventId} />} />

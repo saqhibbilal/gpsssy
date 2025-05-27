@@ -596,7 +596,7 @@ function setupSimulatedTracking(broadcast: (message: WebSocketMessage) => void) 
     } catch (error) {
       console.error('Error simulating tracking updates:', error);
     }
-  }, 5000); // Update every 5 seconds
+  }, 50000); // Update every 5 seconds
   
   // Occasionally generate random SOS alerts
   setInterval(async () => {
