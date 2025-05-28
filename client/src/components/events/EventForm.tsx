@@ -72,13 +72,27 @@ export default function EventForm({ onSuccess }: EventFormProps) {
       });
     },
   });
-
+/*
   // Form submission handler
   const onSubmit = (values: FormValues) => {
     setIsCreating(true);
     createEvent.mutate(values);
     setIsCreating(false);
   };
+*/
+  //fix 
+  const onSubmit = (values: FormValues) => {
+  setIsCreating(true);
+
+  const formattedValues = {
+    ...values,
+    //startDate: new Date(values.startDate),
+    //endDate: new Date(values.endDate),
+  };
+
+  createEvent.mutate(formattedValues);
+  setIsCreating(false);
+};
 
   return (
     <Form {...form}>

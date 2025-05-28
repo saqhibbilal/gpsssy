@@ -55,7 +55,7 @@ export const events = pgTable("events", {
   createdBy: integer("created_by"),
   maxParticipants: integer("max_participants").default(100),
 });
-
+/*
 export const insertEventSchema = createInsertSchema(events).pick({
   name: true,
   description: true,
@@ -66,6 +66,16 @@ export const insertEventSchema = createInsertSchema(events).pick({
   routeId: true,
   createdBy: true,
   maxParticipants: true,
+});*/
+export const insertEventSchema = z.object({
+  name: z.string(),
+  description: z.string().optional(),
+  location: z.string(),
+  status: z.string(),
+  maxParticipants: z.number(),
+  createdBy: z.number(),
+  startDate: z.preprocess((val) => new Date(val as string), z.date()),
+  endDate: z.preprocess((val) => new Date(val as string), z.date()),
 });
 
 // Route model
