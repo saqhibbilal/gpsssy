@@ -43,6 +43,8 @@ export default function Events({ activeEventId, onEventSelect }: EventsProps) {
   };
 
   return (
+     
+    <div className="h-full overflow-y-auto">
     <div className="container mx-auto py-6 px-4">
       <div className="flex justify-between items-center mb-6">
         <div>
@@ -137,6 +139,7 @@ export default function Events({ activeEventId, onEventSelect }: EventsProps) {
           <EventForm onSuccess={() => setIsCreateEventOpen(false)} />
         </DialogContent>
       </Dialog>
+    </div>
     </div>
   );
 }

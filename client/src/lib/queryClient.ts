@@ -6,8 +6,8 @@ async function throwIfResNotOk(res: Response) {
     throw new Error(`${res.status}: ${text}`);
   }
 }
-/*
-//this works for adding routes but there is issue with respect to checkpoints
+
+//this works for CRUD events, routes , participlants but not for devices
 export async function apiRequest(
   method: string,
   url: string,
@@ -23,9 +23,9 @@ export async function apiRequest(
   await throwIfResNotOk(res);
   return res;
 }
-  */
+  
 
-
+/*
 //this works for devices and some other things but does not work for routes operations
 export async function apiRequest(
   url: string,
@@ -43,7 +43,7 @@ export async function apiRequest(
   await throwIfResNotOk(res);
   return res.json();
 }
- 
+ */
 
 type UnauthorizedBehavior = "returnNull" | "throw";
 export const getQueryFn: <T>(options: {
