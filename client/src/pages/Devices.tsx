@@ -48,13 +48,13 @@ export default function Devices({ activeEventId }: DevicesProps) {
   // Fetch all devices
   const { data: devices = [], isLoading } = useQuery<Device[]>({
     queryKey: ['/api/devices'],
-    refetchInterval: 10000,
+    refetchInterval: 50000,
   });
 
   // Fetch unassigned devices
   const { data: unassignedDevices = [] } = useQuery<Device[]>({
     queryKey: ['/api/devices/unassigned'],
-    refetchInterval: 10000,
+    refetchInterval: 50000,
   });
   
   // Fetch participants for the active event

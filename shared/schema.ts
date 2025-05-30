@@ -55,6 +55,8 @@ export const events = pgTable("events", {
   createdBy: integer("created_by"),
   maxParticipants: integer("max_participants").default(100),
 });
+
+//change event schema with zod validation 
 /*
 export const insertEventSchema = createInsertSchema(events).pick({
   name: true,

@@ -7,7 +7,7 @@ async function throwIfResNotOk(res: Response) {
   }
 }
 
-/*
+
 //this works for CRUD events, routes , participlants but not for devices
 export async function apiRequest(
   method: string,
@@ -24,12 +24,12 @@ export async function apiRequest(
   await throwIfResNotOk(res);
   return res;
 }
-  */
+  
 
  
   
 
-
+/*
 //this works for devices and some other things but does not work for routes,participants and events 
 export async function apiRequest(
   url: string,
@@ -47,7 +47,7 @@ export async function apiRequest(
   await throwIfResNotOk(res);
   return res.json();
 }
- 
+ */
 
 type UnauthorizedBehavior = "returnNull" | "throw";
 export const getQueryFn: <T>(options: {

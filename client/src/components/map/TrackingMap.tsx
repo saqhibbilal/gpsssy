@@ -62,7 +62,7 @@ export default function TrackingMap({
     if (mapContainerRef.current && !mapRef.current) {
       // Initialize Leaflet map
       const leafletMap = L.map(mapContainerRef.current, {
-        center: [37.7749, -122.4194], // Default center (San Francisco)
+        center: [37.7749, -122.4194], // Default center (San Francisco)          
         zoom: 13,
         zoomControl: false, // We'll add custom controls
         attributionControl: true
