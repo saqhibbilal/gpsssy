@@ -38,7 +38,7 @@ export function useWebSocket<T>() {
       reconnectTimeoutRef.current = window.setTimeout(() => {
         console.log('Attempting to reconnect...');
         connect();
-      }, 3000);
+      }, 8000);
     };
 
     socket.onerror = (error) => {
