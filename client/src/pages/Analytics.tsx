@@ -179,10 +179,10 @@ export default function Analytics({ eventId }: AnalyticsProps) {
                   layout="vertical"
                   margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                  <XAxis type="number" label={{ value: 'Distance (km)', position: 'insideBottom', offset: -5 }} />
-                  <YAxis type="category" dataKey="name" width={60} />
-                  <Tooltip formatter={(value, name) => [`${value} km`, 'Distance']} />
+                  <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="hsl(var(--border))" />
+                  <XAxis type="number" label={{ value: 'Distance (km)', position: 'insideBottom', offset: -5 }} stroke="hsl(var(--foreground))" />
+                  <YAxis type="category" dataKey="name" width={60} stroke="hsl(var(--foreground))" />
+                  <Tooltip formatter={(value, name) => [`${value} km`, 'Distance']} contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }} />
                   <Bar dataKey="distance" fill="hsl(var(--chart-1))" barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
@@ -210,13 +210,13 @@ export default function Analytics({ eventId }: AnalyticsProps) {
                   margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                   stackOffset="expand"
                 >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Bar dataKey="completed" stackId="a" fill="hsl(var(--chart-2))" name="Completed" />
-                  <Bar dataKey="remaining" stackId="a" fill="hsl(var(--muted))" name="Remaining" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="name" stroke="hsl(var(--foreground))" />
+                  <YAxis stroke="hsl(var(--foreground))" />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }} />
+                  <Legend wrapperStyle={{ color: 'hsl(var(--foreground))' }} />
+                  <Bar dataKey="completed" stackId="a" fill="hsl(var(--chart-1))" name="Completed" />
+                  <Bar dataKey="remaining" stackId="a" fill="hsl(var(--chart-5))" name="Remaining" />
                 </BarChart>
               </ResponsiveContainer>
             )}
@@ -242,11 +242,11 @@ export default function Analytics({ eventId }: AnalyticsProps) {
                   data={distanceDistribution}
                   margin={{ top: 20, right: 30, left: 0, bottom: 0 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Area type="monotone" dataKey="count" fill="hsl(var(--chart-3))" stroke="hsl(var(--chart-3))" name="Participants" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="name" stroke="hsl(var(--foreground))" />
+                  <YAxis stroke="hsl(var(--foreground))" />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }} />
+                  <Area type="monotone" dataKey="count" fill="hsl(var(--chart-3))" stroke="hsl(var(--chart-3))" strokeWidth={2} name="Participants" />
                 </AreaChart>
               </ResponsiveContainer>
             )}

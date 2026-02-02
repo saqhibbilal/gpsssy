@@ -29,13 +29,13 @@ export default function Header({ activeEvent, events, onEventChange }: HeaderPro
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-card shadow-lg z-10">
+    <header className="bg-card shadow-lg z-10 border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <MapPin className="text-primary mr-3" />
+            <MapPin className="text-primary mr-3" size={24} />
             <Link href="/">
-              <a className="font-bold text-3xl">trackPro</a>
+              <a className="font-bold text-3xl tracking-tight">trackPro</a>
             </Link>
           </div>
           
